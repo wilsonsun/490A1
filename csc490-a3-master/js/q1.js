@@ -1,9 +1,10 @@
 function stringProduct(str){
-  var product = str.reduce(function(prev, curr) {
+
+  var product = str.split(",").reduce(function(prev, curr) {
   	return prev * curr;
   });
 
-  return product;
+  return Number(product);
 }
 
 function stringInterpolate(){
