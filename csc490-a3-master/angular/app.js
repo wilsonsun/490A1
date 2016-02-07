@@ -8,6 +8,16 @@ app.config(['$routeProvider',
         controller : 'HomeCtrl',
         controllerAs : 'home'
       })
+      .when('/add', {
+        templateUrl : 'templates/form.html',
+        controller : 'AddCtrl',
+        controllerAs : 'add'
+      })
+      .when('/update/:id', {
+        templateUrl : 'templates/form.html',
+        controller : 'UpdateCtrl',
+        controllerAs : 'update'
+      })
       .otherwise('/');
   }
 ]);
