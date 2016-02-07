@@ -15,23 +15,55 @@ angular.module('services')
   };
 
   AddressBook.filterByText = function(text){
-    return [];
+    res = [];
+    var patt = new RegExp(text, "i");
+
+    for (i = 0; i < AddressBook.people.length; i++) {
+      if (patt.test(AddressBook.people[i].name))
+        res.push(AddressBook.people[i]);
+    }
+
+    return res;
+
   };
 
   AddressBook.findById = function(id){
-    return {};
+
+    for (i = 0; i < AddressBook.people.length; i++) {
+      if (AddressBook.people[i].id == id)
+        return AddressBook.people[i];
+    }
+
+    return null;
+
   };
 
   AddressBook.remove = function(id){
-    return undefined;
+
+    var item = AddressBook.findById(id);
+    if (item != null) {
+      var index = AddressBook.people.indexOf(item);
+      AddressBook.people.splice(index, 1);
+    }
+
+    return item;
   };
 
   AddressBook.add = function(person){
-    return {};
+    AddressBook.people.push(person);
+
+    return;
   };
 
   AddressBook.update = function(personObj){
-    return {};
+    var item = AddressBook.findById(personObj.id);
+    if (item != null) {
+      var index = AddressBook.people.indexOf(item);
+      AddressBook.people[index] = personObj;
+      return;
+    }
+
+    return null;
   };
 
   return AddressBook;
