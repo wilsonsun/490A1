@@ -1,4 +1,5 @@
 <h1>Address Book</h1>
+Filter:<input type="text"/><br />
 <div ng-repeat="person in home.addressBook">
   <h2>{{person.name}}</h2>
   <nav><a href="#/update/:{{person.id}}">Update Info</a></nav>
