@@ -21,3 +21,13 @@ app.config(['$routeProvider',
       .otherwise('/');
   }
 ]);
+
+app.filter('filterByText', function(addressBook) {
+
+  return function(items, searchText) {
+    
+    return addressBook.filterByText(searchText);
+
+  }
+
+});
